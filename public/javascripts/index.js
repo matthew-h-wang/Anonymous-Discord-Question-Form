@@ -20,6 +20,8 @@ function updateMessageId(id){
       for (let i = 0; i < linkButtons.length; i++) {
          linkButtons.item(i).classList.remove('hidden')
       }
+      document.getElementById("MessageId").textContent = `Editing Question - Discord Message ID: ${messageId}`
+      document.getElementById("MessageId").classList.remove("hidden");
       document.getElementById("Subject").disabled = true;
       document.getElementById("Submit").classList.add('hidden');
       document.getElementById("Clear").classList.add('hidden');
@@ -33,6 +35,7 @@ function updateMessageId(id){
       for (let i = 0; i < linkButtons.length; i++) {
          linkButtons.item(i).classList.add('hidden')
       }
+      document.getElementById("MessageId").classList.add("hidden");
       document.getElementById("Subject").disabled = false;
       document.getElementById("Submit").classList.remove('hidden');
       document.getElementById("Clear").classList.remove('hidden');

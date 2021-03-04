@@ -1,6 +1,8 @@
 <h1>ATCS Discord - Q&A Channel Form
     <small>Submit (anonymous) questions to the <a href= "/discordRedirect" target="_blank">Q&A channel</a></small>
 </h1>
+
+<h3 {{#if messageId}}class="hidden"{{/if}} id = "MessageId"><small>Editing Question - Discord Message ID: {{messageId}}</small></h3>
 <form id = 'questionForm'>
     <fieldset>
         <legend>Question components</legend>
@@ -34,7 +36,7 @@
         <button class="tertiary large link-button hidden" type="button">View Post on Discord</button>
         <button class="primary large" id="Submit" type="submit">Submit Question to Discord</button>
         <button class="secondary large" id="Clear" type="reset">Clear</button>
-        <button class="primary large hidden" id="Edit" type="submit">Edit Question on Discord</button>
+        <button class="primary large hidden" id="Edit" type="submit">Update Question on Discord</button>
         <button class="secondary large hidden" id="NewQuestion" type="reset">New Question</button>
         <button class="inverse large delete-button hidden" type="button">Delete Post on Discord</button>
     </div>
