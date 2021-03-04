@@ -138,13 +138,15 @@ function handleDeleteSuccess(){
    displayModalDialog("Question deleted!",  "Close to write a new question.");
  }
 
-for (let i = 0; i < deleteButtons.length; i++) {
-   deleteButtons[i].onclick = (e) => {
+function handleDelete(){
+   {
       if (currentlyFetching)
          return;
-      const deleteConfirmationTitle = "CONFIRM DELETE QUESTION";
       //Make double confirmation with modal
-      if (!dialogControl.checked || dialogTitle.textContent !== deleteConfirmationTitle){
+      const deleteConfirmationTitle = "CONFIRM DELETE QUESTION";
+      if ((!dialogControl.checked)
+       || (dialogTitle.textContent !== deleteConfirmationTitle)
+      ){
          displayModalDialog(deleteConfirmationTitle, "Are you sure you want to delete this question from the Discord Channel?");
          return;
       }
@@ -165,4 +167,8 @@ for (let i = 0; i < deleteButtons.length; i++) {
       });
 
    };
+}
+
+for (let i = 0; i < deleteButtons.length; i++) {
+   deleteButtons[i].onclick = (e) => handleDelete();
 }
