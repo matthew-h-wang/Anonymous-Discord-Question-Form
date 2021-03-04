@@ -1,5 +1,7 @@
 require('dotenv').config();
 
+const channelName = process.env.DISCORD_CHANNEL_NAME
+
 const atcsServerId = process.env.DISCORD_SERVER_ID
 const qaChannelId = process.env.DISCORD_CHANNEL_ID
 const webhookId = process.env.DISCORD_WEBHOOK_ID
@@ -21,4 +23,7 @@ const languageList = {
     "Scheme":"scheme"
   }
 
-module.exports = {webhookUrl: webhookUrl, atcsQaChannelURL: atcsQaChannelURL, messageMaxLength: messageMaxLength, languageList:languageList}
+module.exports = {channelName : channelName, 
+                webhookUrl: webhookUrl, 
+                atcsQaChannelURL: atcsQaChannelURL, 
+                messageMaxLength: messageMaxLength, languageList:languageList}
