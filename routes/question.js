@@ -13,6 +13,9 @@ function formToMessageContent(formData){
     content += "\n```" + `${formData.Language}\n${formData.Code}\n` + "```"               
   if (formData.Error)
     content += "\nError Message:\n```" + `\n${formData.Error}\n` + "```"
+  if (content.length > discordConstants.messageMaxLength)
+    throw Error(`Your message (${content.length} chars) is too long (${discordConstants.messageMaxLength} max)`);
+
   return content;
 }
 
@@ -29,8 +32,12 @@ function fetchAndLog(request_url, request_params){
 
 router.post("/", formParser.none(), function(req, res, next) {
     const formData = req.body;
-    var content = formToMessageContent(formData)
-
+    try {
+      var content = formToMessageContent(formData)
+    } catch (error) {
+      res.status(422).send(error.message);
+      return;
+    }
     const request_url = discordConstants.webhookUrl + "?" + new URLSearchParams({wait: 'true'})
 
     const request_params = {
@@ -54,7 +61,12 @@ router.patch("/", formParser.none(), function(req, res, next) {
 
   const messageId = req.query.messageId;
   const formData = req.body;
-  var content = formToMessageContent(formData)
+  try {
+    var content = formToMessageContent(formData)
+  } catch (error) {
+    res.status(422).send(error.message);
+    return;
+  }
 
   const request_url = discordConstants.webhookUrl + `/messages/${messageId}` + "?" + new URLSearchParams({wait: 'true'})
 

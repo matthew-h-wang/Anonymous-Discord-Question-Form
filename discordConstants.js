@@ -8,4 +8,17 @@ const webhookToken = process.env.DISCORD_WEBHOOK_TOKEN
 const atcsQaChannelURL = `https://discord.com/channels/${atcsServerId}/${qaChannelId}`;
 const webhookUrl = `https://discord.com/api/webhooks/${webhookId}/${webhookToken}`;
 
-module.exports = {webhookUrl: webhookUrl, atcsQaChannelURL: atcsQaChannelURL}
+const messageMaxLength = 2000;
+const languageList = {
+    "~~General~~": "",
+    "Python":"py",
+    "Java":"java",
+    "C":"c",
+    "C#":"csharp",
+    "HTML":"html",
+    "CSS":"css",
+    "Javascript":"js",
+    "Scheme":"scheme"
+  }
+
+module.exports = {webhookUrl: webhookUrl, atcsQaChannelURL: atcsQaChannelURL, messageMaxLength: messageMaxLength, languageList:languageList}

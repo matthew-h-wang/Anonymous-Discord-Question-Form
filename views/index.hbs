@@ -11,7 +11,7 @@
 
         <div class="input-group vertical">
             <label for="Question"><h3>Question<small>(required)</small></h3></label>
-            <textarea form="questionForm" name="Question" id="Question" wrap="hard" required minlength=10 maxlength=1980></textarea>
+            <textarea form="questionForm" name="Question" id="Question" wrap="hard" required minlength=10 maxlength={{textareaMaxLength}}></textarea>
         </div>
         <div class="input-group vertical">
 
@@ -23,11 +23,11 @@
                     {{/each}}
                 </select>
             </div>
-            <textarea class = "monotext" form="questionForm" name="Code" id="Code" wrap="hard" maxlength=1980></textarea>
+            <textarea class = "monotext" form="questionForm" name="Code" id="Code" wrap="hard" maxlength={{textareaMaxLength}}></textarea>
         </div>
         <div class="input-group vertical">
             <label for="Error"><h3>Error Message<small>(optional)</small></h3></label>
-            <textarea class = "monotext" form="questionForm" name="Error" id="Error" wrap="hard" maxlength=1980></textarea>
+            <textarea class = "monotext" form="questionForm" name="Error" id="Error" wrap="hard" maxlength={{textareaMaxLength}}></textarea>
         </div>
     </fieldset>
     <div class="button-group horizontal">

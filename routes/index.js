@@ -1,23 +1,16 @@
 var express = require('express');
+const discordConstants = require('../discordConstants.js');
 
-const languageList = {
-  "~~General~~": "",
-  "Python":"py",
-  "Java":"java",
-  "C":"c",
-  "C#":"csharp",
-  "HTML":"html",
-  "CSS":"css",
-  "Javascript":"js",
-  "Scheme":"scheme"
-}
+
 
 var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
   // Optional messageId query string  
-  var data = { languageList: languageList, messageId : req.query.messageId};
+  var data = { languageList: discordConstants.languageList, 
+              messageId : req.query.messageId, 
+              textareaMaxLength : (discordConstants.messageMaxLength - 20)};
   res.render('index', data);
 });
 

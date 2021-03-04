@@ -82,9 +82,9 @@ closeModalDialog();
 
 //Handle form submission
 
-function handleErrors(response) {
+async function handleErrors(response) {
    if (!response.ok) {
-       throw Error(response.statusText);
+       throw Error(await response.text() || response.statusText);
    }
    return response;
 }
