@@ -1,9 +1,19 @@
 var express = require('express');
 const fetch = require('node-fetch');
 const formParser = require('multer')();
+const rateLimit = require("express-rate-limit");
 const discordConstants = require('../discordConstants.js');
 
 var router = express.Router();
+
+//rate limiting
+const limiter = rateLimit({
+  windowMs: parseInt(process.env.RATE_LIMIT_WINDOW_SECONDS) * 1000, //
+  max: parseInt(process.env.RATE_LIMIT_MAX) // limit each IP to max requests per windowMs
+});
+router.use(limiter);
+
+router.use
 
 //handlers for hitting the Discord Webhook
 function formToMessageContent(formData){
