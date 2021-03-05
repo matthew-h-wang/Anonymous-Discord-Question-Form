@@ -1,6 +1,8 @@
 # Anonymous-Discord-Question-Form
 A simple form for submitting/editing/deleting anonymous questions to a Discord channel via webhook.
 
+Currently hosted at https://atcs-qa-forum.herokuapp.com/
+
 For development, the secret config variables are kept in a file called `.env`, which isn't on the repo. 
 You can see `.sample-env` for the needed config variables; during deployment, those may be set via environment variables instead.
 
